@@ -1,5 +1,6 @@
 %   MAIN PROGRAM
 %   ---------------------------------------------------
+clear
 Credits;
 globalVar;
 global resultsTXT; 
@@ -39,6 +40,7 @@ Gradient = zeros(nbobs,Op.n);
 %Starting optimization
 tic ;
 disp('Start Optimizing ....')
+
 [Op.value, Op.grad ] = LL(Op.x);
 PrintOut(Op);
 header = [sprintf('%s \n',file_observations) Op.Optim_Method];

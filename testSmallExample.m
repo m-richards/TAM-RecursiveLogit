@@ -32,6 +32,7 @@ loadData;
 Gobs = Obs;
 Gnbobs = size(Obs,1);
 nbobs = 1;
+global Op;
 Op = Op_structure;
 initialize_optimization_structure();
 Gradient = zeros(nbobs,Op.n);
