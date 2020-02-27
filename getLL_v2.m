@@ -85,6 +85,8 @@ function [LL, grad] = getLL_v2()
         lnPn = - 1 * ((1/mu) * log(expV0));
         Gradient(t,:) = - gradV0;
         path = Obs(sample(t),:);
+%         fprintf("path = %s\n", sprintf("%f ", full(path)));
+        
         lpath = size(find(path),2);
         for i = 2:lpath - 1
             mIndex = min(path(i+1), lastIndexNetworkState +1);

@@ -101,7 +101,11 @@ global Atts;
 
 Obs = spconvert(load(file_observations));
 [nbobs, maxstates] = size(Obs);
-nbobs = 10;
+global nObsOverride
+if ~ isempty(nObsOverride)
+    nbobs = nObsOverride;
+end
+
 
 
 getAtt(); 

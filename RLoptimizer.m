@@ -1,9 +1,15 @@
 %   MAIN PROGRAM
 %   ---------------------------------------------------
+
+% Artificially hack down the number of observed paths
+global nObsOverride;
+nObsOverride = 10;
+
 clear
 Credits;
 globalVar;
 global resultsTXT; 
+
 
 
 %------------------------------------------------------
@@ -76,7 +82,8 @@ end
 %PrintOut(Op);
 getCov;
 %Finishing ...
-ElapsedTtime = toc
+ElapsedTtime = toc;
+fprintf("Elapsed time = %f\n", ElapsedTtime);
 resultsTXT = [resultsTXT sprintf('\n Number of function evaluation %d \n', Op.nFev)];
-resultsTXT = [resultsTXT sprintf('\n Estimated time %d \n', ElapsedTtime)];
+resultsTXT = [resultsTXT sprintf('\n Estimated time %f \n', ElapsedTtime)];
 
