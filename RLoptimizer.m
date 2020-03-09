@@ -7,7 +7,7 @@ nObsOverride = 4;
 
 clear
 zCredits
-globalVar;
+z_define_global_vars;
 global resultsTXT; 
 
 

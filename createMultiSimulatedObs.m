@@ -2,7 +2,7 @@
 %%
 global Op;
 global Obs;
-globalVar;
+z_define_global_vars;
 ODpairs = Obs(:,1:2);
 disp('Observation generating ....')
 Op.n = 5;

@@ -2,7 +2,7 @@
 %%
 global Op;
 global Obs;
-globalVar;
+z_define_global_vars;
 
 disp('Observation generating ....')
 Op.n = 4;

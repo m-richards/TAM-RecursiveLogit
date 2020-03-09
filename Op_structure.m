@@ -27,4 +27,33 @@ classdef Op_structure
       ETA1 = 0.2;
       ETA2 = 0.75;
    end
+   
+   methods
+       
+   function [] = PrintOut(instance)
+      global resultsTXT;
+      fprintf('[Iteration]: %d\n', instance.k);
+      fprintf('     LL = %f\n', instance.value);
+      fprintf('     x = \n');
+      fprintf('         %i\n', instance.x');
+      fprintf('     norm of step = %f\n', norm(instance.step));
+      fprintf('     radius = %f\n', instance.delta);  
+      fprintf('     Norm of grad = %f\n', norm(instance.grad));
+      relatice_grad = relative_gradient(instance.value, instance.x, instance.grad, 1.0);
+      fprintf('     Norm of relative gradient = %f\n', relatice_grad);
+      fprintf('     Number of function evaluation = %f\n', instance.nFev);
+      
+      % To string
+      resultsTXT = [resultsTXT sprintf('[Iteration]: %d\n', instance.k)];
+      resultsTXT = [resultsTXT sprintf('     LL = %f\n', instance.value)];
+      resultsTXT = [resultsTXT sprintf('     x = \n')];
+      resultsTXT = [resultsTXT sprintf('         %i\n', instance.x')];
+      resultsTXT = [resultsTXT sprintf('     norm of step = %f\n', norm(instance.step))];
+      resultsTXT = [resultsTXT sprintf('     radius = %f\n', instance.delta)];  
+      resultsTXT = [resultsTXT sprintf('     Norm of grad = %f\n', norm(instance.grad))];
+      resultsTXT = [resultsTXT sprintf('     Norm of relative gradient = %f\n', relatice_grad)];    
+      resultsTXT = [resultsTXT sprintf('     Number of function evaluation = %d\n', instance.nFev)]; 
+       
+   end
+   end
 end

@@ -8,7 +8,7 @@
 %%
 zCredits
 % Initialize email notification
-globalVar;
+z_define_global_vars;
 global resultsTXT; 
 % notifyMail('set','amyeuphich@gmail.com','sntal2908');
 
