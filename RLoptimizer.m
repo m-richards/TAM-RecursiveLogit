@@ -3,7 +3,7 @@
 
 % Artificially hack down the number of observed paths
 global nObsOverride;
-nObsOverride = 10;
+nObsOverride = 4;
 
 clear
 Credits;
@@ -37,7 +37,9 @@ loadData;
 
 % Op.x = [-2.0 -1.0 -1.0 -0.2]';
 Op.Optim_Method = OptimizeConstant.TRUST_REGION_METHOD;
+% Op.Optim_Method = OptimizeConstant.LINE_SEARCH_METHOD;
 Op.Hessian_approx = OptimizeConstant.BFGS;
+% Op.Hessian_approx = OptimizeConstant.SSA_BFGS;
 Gradient = zeros(nbobs,Op.n);
 
 

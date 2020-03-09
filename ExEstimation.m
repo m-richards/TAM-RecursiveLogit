@@ -10,7 +10,7 @@ Credits;
 % Initialize email notification
 globalVar;
 global resultsTXT; 
-notifyMail('set','amyeuphich@gmail.com','sntal2908');
+% notifyMail('set','amyeuphich@gmail.com','sntal2908');
 
 
 %------------------------------------------------------
