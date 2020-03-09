@@ -6,7 +6,7 @@
 %   MAIN PROGRAM
 %   ---------------------------------------------------
 %%
-Credits;
+zCredits
 % Initialize email notification
 globalVar;
 global resultsTXT; 

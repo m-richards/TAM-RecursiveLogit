@@ -35,7 +35,7 @@ function Obs = generateObs(filename, x0, ODpairs, nbobsOD)
         sizeOfParams = Op.n;
     end
     for i = 1 : sizeOfParams
-        AttLc(i) =  Matrix2D(Atts(i).Value(1:lastIndexNetworkState,1:lastIndexNetworkState));
+        AttLc(i) =  Matrix2D(Atts(i).value(1:lastIndexNetworkState,1:lastIndexNetworkState));
         AttLc(i).Value(:,lastIndexNetworkState+1) = sparse(zeros(lastIndexNetworkState,1));
         AttLc(i).Value(lastIndexNetworkState+1,:) = sparse(zeros(1, lastIndexNetworkState + 1));
     end
@@ -57,7 +57,11 @@ function Obs = generateObs(filename, x0, ODpairs, nbobsOD)
         end
         if true   
             % Get M and U
-            Mfull = getM(x0, isLinkSizeInclusive); % matrix with exp utility for given beta
+%           This is broken - need to pass in AttLc
+% TODO this might be fake fix which breaks link size, perhaps function
+% is supposed to index out of linksize Matrix somehow
+%             Mfull = getM(x0, isLinkSizeInclusive); % matrix with exp utility for given beta
+            Mfull = getM(x0, Atts); % matrix with exp utility for given beta
             M = Mfull(1:lastIndexNetworkState,1:lastIndexNetworkState);            
             addColumn = Mfull(:,dest);
             M(:,lastIndexNetworkState+1) = addColumn;
@@ -71,7 +75,9 @@ function Obs = generateObs(filename, x0, ODpairs, nbobsOD)
             V = log(Z);
         end                
         % Get Utility
-        Ufull = getU(x0, isLinkSizeInclusive); % matrix of utility for given beta
+        % Broken again - we infer a fix
+%         Ufull = getU(x0, isLinkSizeInclusive); % matrix of utility for given beta
+        Ufull = getU(x0, Atts); % matrix of utility for given beta
         U = Ufull(1:lastIndexNetworkState,1:lastIndexNetworkState);            
         addColumn = Ufull(:,dest);
         U(:,lastIndexNetworkState+1) = addColumn;

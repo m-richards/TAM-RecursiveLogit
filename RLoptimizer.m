@@ -6,7 +6,7 @@ global nObsOverride;
 nObsOverride = 4;
 
 clear
-Credits;
+zCredits
 globalVar;
 global resultsTXT; 
 
